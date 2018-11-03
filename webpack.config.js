@@ -13,6 +13,16 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                test: /\.tsx$/,
+                enforce: 'pre',
+                use: [
+                    {
+                        loader: 'tslint-loader',
+                        options: { emitErrors: true }
+                    }
+                ]
+            },
             { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
             { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
             {
